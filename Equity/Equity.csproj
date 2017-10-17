@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42114363-74C1-43EA-8524-2EC729F05F6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Equity</RootNamespace>
+    <AssemblyName>Equity</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.1.0.0\lib\net45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.WindowsForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.WindowsForms.1.0.0\lib\net45\OxyPlot.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DataHelper.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Model\broker.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\code_stock_quote.cs" />
+    <Compile Include="Model\domestic_individual.cs" />
+    <Compile Include="Model\EntitiesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitiesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EntitiesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EntitiesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitiesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\equity_holding.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\financial.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\foreign_buy_sell.cs" />
+    <Compile Include="Model\fundamental.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\portfolio.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sector.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\stock.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\stock_quotes.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\total_composition.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\transaction.cs">
+      <DependentUpon>EntitiesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BrokerRepository.cs" />
+    <Compile Include="Repository\EquityRepository.cs" />
+    <Compile Include="Repository\FinancialReportRepository.cs" />
+    <Compile Include="Repository\PortfolioRepository.cs" />
+    <Compile Include="Repository\StockQuoteRepository.cs" />
+    <Compile Include="Repository\StockRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="View\AwaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AwaitForm.Designer.cs">
+      <DependentUpon>AwaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Fundamental\InsertFinancialReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Fundamental\InsertFinancialReportForm.Designer.cs">
+      <DependentUpon>InsertFinancialReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Holding\DomesticIndividualForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Holding\DomesticIndividualForm.Designer.cs">
+      <DependentUpon>DomesticIndividualForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Holding\StockChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Holding\StockChartForm.Designer.cs">
+      <DependentUpon>StockChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Holding\StockChartTimeBasedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Holding\StockChartTimeBasedForm.Designer.cs">
+      <DependentUpon>StockChartTimeBasedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Holding\StockChartTotalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Holding\StockChartTotalForm.Designer.cs">
+      <DependentUpon>StockChartTotalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Holding\StockDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Holding\StockDataForm.Designer.cs">
+      <DependentUpon>StockDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Portfolio\CreateTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Portfolio\CreateTransactionForm.Designer.cs">
+      <DependentUpon>CreateTransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quote\Analysis\DailyForeignNetBuyChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Quote\Analysis\DailyForeignNetBuyChartForm.Designer.cs">
+      <DependentUpon>DailyForeignNetBuyChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quote\DailyQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Quote\DailyQuoteForm.Designer.cs">
+      <DependentUpon>DailyQuoteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quote\EditQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Quote\EditQuoteForm.Designer.cs">
+      <DependentUpon>EditQuoteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quote\ForeignChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Quote\ForeignChartForm.Designer.cs">
+      <DependentUpon>ForeignChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quote\QuoteChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Quote\QuoteChartForm.Designer.cs">
+      <DependentUpon>QuoteChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quote\UploadQuoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Quote\UploadQuoteForm.Designer.cs">
+      <DependentUpon>UploadQuoteForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\AwaitForm.resx">
+      <DependentUpon>AwaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Fundamental\InsertFinancialReportForm.resx">
+      <DependentUpon>InsertFinancialReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Holding\DomesticIndividualForm.resx">
+      <DependentUpon>DomesticIndividualForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Holding\StockChartForm.resx">
+      <DependentUpon>StockChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Holding\StockChartTimeBasedForm.resx">
+      <DependentUpon>StockChartTimeBasedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Holding\StockChartTotalForm.resx">
+      <DependentUpon>StockChartTotalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Holding\StockDataForm.resx">
+      <DependentUpon>StockDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Portfolio\CreateTransactionForm.resx">
+      <DependentUpon>CreateTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Quote\Analysis\DailyForeignNetBuyChartForm.resx">
+      <DependentUpon>DailyForeignNetBuyChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Quote\DailyQuoteForm.resx">
+      <DependentUpon>DailyQuoteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Quote\EditQuoteForm.resx">
+      <DependentUpon>EditQuoteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Quote\ForeignChartForm.resx">
+      <DependentUpon>ForeignChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Quote\QuoteChartForm.resx">
+      <DependentUpon>QuoteChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Quote\UploadQuoteForm.resx">
+      <DependentUpon>UploadQuoteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\EntitiesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntitiesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EntitiesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntitiesModel.edmx</DependentUpon>
+      <LastGenOutput>EntitiesModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\EntitiesModel.edmx.diagram">
+      <DependentUpon>EntitiesModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\EntitiesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntitiesModel.edmx</DependentUpon>
+      <LastGenOutput>EntitiesModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

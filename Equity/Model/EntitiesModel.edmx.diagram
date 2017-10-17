@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93002b7ac85f4b47bd87dd8624119449" Name="Diagram1">
+        <EntityTypeShape EntityType="idx_equityModel.equity_holding" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="idx_equityModel.financial" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="idx_equityModel.fundamental" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="idx_equityModel.sector" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="idx_equityModel.stock_quotes" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="idx_equityModel.stock" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="idx_equityModel.total_composition" Width="1.5" PointX="10" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="idx_equityModel.STOCK_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="idx_equityModel.FINANCE_STOCK_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="idx_equityModel.FUND_STOCK_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="idx_equityModel.SECTOR_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="idx_equityModel.QUOTE_STOCK_ID_FK" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="idx_equityModel.portfolio" Width="1.5" PointX="0.875" PointY="1.75" />
+        <EntityTypeShape EntityType="idx_equityModel.transaction" Width="1.5" PointX="3.125" PointY="0.75" />
+        <EntityTypeShape EntityType="idx_equityModel.broker" Width="1.5" PointX="8.75" PointY="4.75" />
+        <AssociationConnector Association="idx_equityModel.PORTFOLIO_TRANSACTION_FK" />
+        <AssociationConnector Association="idx_equityModel.STOCK_TRANSACTION_FK" />
+        <AssociationConnector Association="idx_equityModel.BROKER_TRANSACTION_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

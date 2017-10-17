@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="idx_equityModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="broker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="2" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="buy_fee" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="sell_fee" Type="decimal" Precision="2" Scale="2" />
+        </EntityType>
+        <EntityType Name="equity_holding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stock_id" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Insurance" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Company" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Pension_Fund" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Bank" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Individual" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Mutual_Fund" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Security" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Foundation" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Others" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Insurance" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Company" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Pension_Fund" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Bank" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Individual" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Mutual_Fund" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Security" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Foundation" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Foreign_Others" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="financial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stock_id" Type="int" />
+          <Property Name="financial_date" Type="date" />
+          <Property Name="asset" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="liabilities" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="sales" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="equity" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="gross_profit" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="net_income" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="cash_flow" Type="decimal" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="fundamental">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stock_id" Type="int" />
+          <Property Name="return_on_equity" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="return_on_asset" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="gross_profit_margin" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="operating_profit_margin" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="net_profit_margin" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="debt_equity_ratio" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="earning_per_share" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="cash_flow_per_share" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="book_value_per_share" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="shares_amount_issued" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="portfolio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="average_price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="last_price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="total_shares" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="sectors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="145" Nullable="false" />
+          <Property Name="subsector" Type="varchar" MaxLength="145" />
+        </EntityType>
+        <EntityType Name="stock_quotes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stock_id" Type="int" />
+          <Property Name="quote_date" Type="date" Nullable="false" />
+          <Property Name="open" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="high" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="low" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="close" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="volume" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="frequency" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="value" Type="decimal" Precision="14" Scale="0" />
+          <Property Name="foreign_buy" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="foreign_sell" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="stocks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sector_id" Type="int" />
+          <Property Name="code" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="145" />
+        </EntityType>
+        <EntityType Name="transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stock_id" Type="int" />
+          <Property Name="portfolio_id" Type="int" />
+          <Property Name="broker_id" Type="int" />
+          <Property Name="transaction_date" Type="datetime" Precision="0" />
+          <Property Name="number_of_shares" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="transaction_type" Type="varchar" MaxLength="4" />
+          <Property Name="transaction_price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="transaction_fee" Type="decimal" Precision="2" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.idx_equity.total_composition' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="total_composition">
+          <Key>
+            <PropertyRef Name="id" />
+            
+            
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Domestic_Total" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Foreign_Total" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="BROKER_TRANSACTION_FK">
+          <End Role="broker" Type="Self.broker" Multiplicity="0..1" />
+          <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="broker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="broker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FINANCE_STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stocks" Multiplicity="0..1" />
+          <End Role="financial" Type="Self.financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="financial">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FUND_STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stocks" Multiplicity="0..1" />
+          <End Role="fundamental" Type="Self.fundamental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fundamental">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PORTFOLIO_TRANSACTION_FK">
+          <End Role="portfolio" Type="Self.portfolio" Multiplicity="0..1" />
+          <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portfolio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="portfolio_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QUOTE_STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stocks" Multiplicity="0..1" />
+          <End Role="stock_quotes" Type="Self.stock_quotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stock_quotes">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SECTOR_ID_FK">
+          <End Role="sectors" Type="Self.sectors" Multiplicity="0..1" />
+          <End Role="stocks" Type="Self.stocks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sectors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stocks">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stocks" Multiplicity="0..1" />
+          <End Role="equity_holding" Type="Self.equity_holding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="equity_holding">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STOCK_TRANSACTION_FK">
+          <End Role="stocks" Type="Self.stocks" Multiplicity="0..1" />
+          <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="idx_equityModelStoreContainer">
+          <EntitySet Name="broker" EntityType="Self.broker" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="equity_holding" EntityType="Self.equity_holding" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="financial" EntityType="Self.financial" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="fundamental" EntityType="Self.fundamental" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="portfolio" EntityType="Self.portfolio" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="sectors" EntityType="Self.sectors" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="stock_quotes" EntityType="Self.stock_quotes" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="stocks" EntityType="Self.stocks" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="transactions" EntityType="Self.transactions" Schema="idx_equity" store:Type="Tables" />
+          <EntitySet Name="total_composition" EntityType="Self.total_composition" store:Type="Views" store:Schema="idx_equity">
+            <DefiningQuery>SELECT
+`total_composition`.`id`, 
+`total_composition`.`date`, 
+`total_composition`.`code`, 
+`total_composition`.`price`, 
+`total_composition`.`Domestic_Total`, 
+`total_composition`.`Foreign_Total`
+FROM `total_composition` AS `total_composition`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="BROKER_TRANSACTION_FK" Association="Self.BROKER_TRANSACTION_FK">
+            <End Role="broker" EntitySet="broker" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FINANCE_STOCK_ID_FK" Association="Self.FINANCE_STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="financial" EntitySet="financial" />
+          </AssociationSet>
+          <AssociationSet Name="FUND_STOCK_ID_FK" Association="Self.FUND_STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="fundamental" EntitySet="fundamental" />
+          </AssociationSet>
+          <AssociationSet Name="PORTFOLIO_TRANSACTION_FK" Association="Self.PORTFOLIO_TRANSACTION_FK">
+            <End Role="portfolio" EntitySet="portfolio" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="QUOTE_STOCK_ID_FK" Association="Self.QUOTE_STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="stock_quotes" EntitySet="stock_quotes" />
+          </AssociationSet>
+          <AssociationSet Name="SECTOR_ID_FK" Association="Self.SECTOR_ID_FK">
+            <End Role="sectors" EntitySet="sectors" />
+            <End Role="stocks" EntitySet="stocks" />
+          </AssociationSet>
+          <AssociationSet Name="STOCK_ID_FK" Association="Self.STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="equity_holding" EntitySet="equity_holding" />
+          </AssociationSet>
+          <AssociationSet Name="STOCK_TRANSACTION_FK" Association="Self.STOCK_TRANSACTION_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="idx_equityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="equity_holding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stock_id" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Price" Type="Decimal" />
+          <Property Name="Domestic_Insurance" Type="Decimal" />
+          <Property Name="Domestic_Company" Type="Decimal" />
+          <Property Name="Domestic_Pension_Fund" Type="Decimal" />
+          <Property Name="Domestic_Bank" Type="Decimal" />
+          <Property Name="Domestic_Individual" Type="Decimal" />
+          <Property Name="Domestic_Mutual_Fund" Type="Decimal" />
+          <Property Name="Domestic_Security" Type="Decimal" />
+          <Property Name="Domestic_Foundation" Type="Decimal" />
+          <Property Name="Domestic_Others" Type="Decimal" />
+          <Property Name="Foreign_Insurance" Type="Decimal" />
+          <Property Name="Foreign_Company" Type="Decimal" />
+          <Property Name="Foreign_Pension_Fund" Type="Decimal" />
+          <Property Name="Foreign_Bank" Type="Decimal" />
+          <Property Name="Foreign_Individual" Type="Decimal" />
+          <Property Name="Foreign_Mutual_Fund" Type="Decimal" />
+          <Property Name="Foreign_Security" Type="Decimal" />
+          <Property Name="Foreign_Foundation" Type="Decimal" />
+          <Property Name="Foreign_Others" Type="Decimal" />
+          <NavigationProperty Name="stock" Relationship="Self.STOCK_ID_FK" FromRole="equity_holding" ToRole="stocks" />
+        </EntityType>
+        <EntityType Name="financial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stock_id" Type="Int32" />
+          <Property Name="financial_date" Type="DateTime" />
+          <Property Name="asset" Type="Decimal" />
+          <Property Name="liabilities" Type="Decimal" />
+          <Property Name="sales" Type="Decimal" />
+          <Property Name="equity" Type="Decimal" />
+          <Property Name="gross_profit" Type="Decimal" />
+          <Property Name="net_income" Type="Decimal" />
+          <Property Name="cash_flow" Type="Decimal" />
+          <NavigationProperty Name="stock" Relationship="Self.FINANCE_STOCK_ID_FK" FromRole="financial" ToRole="stocks" />
+        </EntityType>
+        <EntityType Name="fundamental">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stock_id" Type="Int32" />
+          <Property Name="return_on_equity" Type="Decimal" />
+          <Property Name="return_on_asset" Type="Decimal" />
+          <Property Name="gross_profit_margin" Type="Decimal" />
+          <Property Name="operating_profit_margin" Type="Decimal" />
+          <Property Name="net_profit_margin" Type="Decimal" />
+          <Property Name="debt_equity_ratio" Type="Decimal" />
+          <Property Name="earning_per_share" Type="Decimal" />
+          <Property Name="cash_flow_per_share" Type="Decimal" />
+          <Property Name="book_value_per_share" Type="Decimal" />
+          <Property Name="shares_amount_issued" Type="Decimal" />
+          <NavigationProperty Name="stock" Relationship="Self.FUND_STOCK_ID_FK" FromRole="fundamental" ToRole="stocks" />
+        </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="145" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subsector" Type="String" MaxLength="145" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="stocks" Relationship="Self.SECTOR_ID_FK" FromRole="sectors" ToRole="stocks" />
+        </EntityType>
+        <EntityType Name="stock_quotes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stock_id" Type="Int32" />
+          <Property Name="quote_date" Type="DateTime" Nullable="false" />
+          <Property Name="open" Type="Decimal" />
+          <Property Name="high" Type="Decimal" />
+          <Property Name="low" Type="Decimal" />
+          <Property Name="close" Type="Decimal" />
+          <Property Name="volume" Type="Decimal" />
+          <Property Name="frequency" Type="Decimal" />
+          <Property Name="value" Type="Decimal" />
+          <Property Name="foreign_buy" Type="Decimal" />
+          <Property Name="foreign_sell" Type="Decimal" />
+          <NavigationProperty Name="stock" Relationship="Self.QUOTE_STOCK_ID_FK" FromRole="stock_quotes" ToRole="stocks" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sector_id" Type="Int32" />
+          <Property Name="code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="145" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="equity_holding" Relationship="Self.STOCK_ID_FK" FromRole="stocks" ToRole="equity_holding" />
+          <NavigationProperty Name="financials" Relationship="Self.FINANCE_STOCK_ID_FK" FromRole="stocks" ToRole="financial" />
+          <NavigationProperty Name="fundamentals" Relationship="Self.FUND_STOCK_ID_FK" FromRole="stocks" ToRole="fundamental" />
+          <NavigationProperty Name="sector" Relationship="Self.SECTOR_ID_FK" FromRole="stocks" ToRole="sectors" />
+          <NavigationProperty Name="stock_quotes" Relationship="Self.QUOTE_STOCK_ID_FK" FromRole="stocks" ToRole="stock_quotes" />
+          <NavigationProperty Name="transactions" Relationship="idx_equityModel.STOCK_TRANSACTION_FK" FromRole="stock" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="total_composition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" />
+          <Property Name="Domestic_Total" Type="Decimal" />
+          <Property Name="Foreign_Total" Type="Decimal" />
+        </EntityType>
+        <Association Name="STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stock" Multiplicity="0..1" />
+          <End Role="equity_holding" Type="Self.equity_holding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="equity_holding">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FINANCE_STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stock" Multiplicity="0..1" />
+          <End Role="financial" Type="Self.financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="financial">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FUND_STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stock" Multiplicity="0..1" />
+          <End Role="fundamental" Type="Self.fundamental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fundamental">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SECTOR_ID_FK">
+          <End Role="sectors" Type="Self.sector" Multiplicity="0..1" />
+          <End Role="stocks" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sectors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stocks">
+              <PropertyRef Name="sector_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QUOTE_STOCK_ID_FK">
+          <End Role="stocks" Type="Self.stock" Multiplicity="0..1" />
+          <End Role="stock_quotes" Type="Self.stock_quotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stocks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="stock_quotes">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="idx_equityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="equity_holding" EntityType="Self.equity_holding" />
+          <EntitySet Name="financials" EntityType="Self.financial" />
+          <EntitySet Name="fundamentals" EntityType="Self.fundamental" />
+          <EntitySet Name="sectors" EntityType="Self.sector" />
+          <EntitySet Name="stock_quotes" EntityType="Self.stock_quotes" />
+          <EntitySet Name="stocks" EntityType="Self.stock" />
+          <EntitySet Name="total_composition" EntityType="Self.total_composition" />
+          <AssociationSet Name="STOCK_ID_FK" Association="Self.STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="equity_holding" EntitySet="equity_holding" />
+          </AssociationSet>
+          <AssociationSet Name="FINANCE_STOCK_ID_FK" Association="Self.FINANCE_STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="financial" EntitySet="financials" />
+          </AssociationSet>
+          <AssociationSet Name="FUND_STOCK_ID_FK" Association="Self.FUND_STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="fundamental" EntitySet="fundamentals" />
+          </AssociationSet>
+          <AssociationSet Name="SECTOR_ID_FK" Association="Self.SECTOR_ID_FK">
+            <End Role="sectors" EntitySet="sectors" />
+            <End Role="stocks" EntitySet="stocks" />
+          </AssociationSet>
+          <AssociationSet Name="QUOTE_STOCK_ID_FK" Association="Self.QUOTE_STOCK_ID_FK">
+            <End Role="stocks" EntitySet="stocks" />
+            <End Role="stock_quotes" EntitySet="stock_quotes" />
+          </AssociationSet>
+          <EntitySet Name="brokers" EntityType="idx_equityModel.broker" />
+          <EntitySet Name="portfolios" EntityType="idx_equityModel.portfolio" />
+          <EntitySet Name="transactions" EntityType="idx_equityModel.transaction" />
+          <AssociationSet Name="PORTFOLIO_TRANSACTION_FK" Association="idx_equityModel.PORTFOLIO_TRANSACTION_FK">
+            <End Role="portfolio" EntitySet="portfolios" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="STOCK_TRANSACTION_FK" Association="idx_equityModel.STOCK_TRANSACTION_FK">
+            <End Role="stock" EntitySet="stocks" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="BROKER_TRANSACTION_FK" Association="idx_equityModel.BROKER_TRANSACTION_FK">
+            <End Role="broker" EntitySet="brokers" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="broker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="buy_fee" Type="Decimal" />
+          <Property Name="sell_fee" Type="Decimal" />
+          <NavigationProperty Name="transactions" Relationship="idx_equityModel.BROKER_TRANSACTION_FK" FromRole="broker" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="portfolio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="average_price" Type="Decimal" />
+          <Property Name="last_price" Type="Decimal" />
+          <Property Name="total_shares" Type="Decimal" />
+          <NavigationProperty Name="transactions" Relationship="idx_equityModel.PORTFOLIO_TRANSACTION_FK" FromRole="portfolio" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stock_id" Type="Int32" />
+          <Property Name="transaction_date" Type="DateTime" />
+          <Property Name="number_of_shares" Type="Decimal" />
+          <Property Name="transaction_type" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_price" Type="Decimal" />
+          <Property Name="transaction_fee" Type="Decimal" />
+          <Property Name="portfolio_id" Type="Int32" />
+          <NavigationProperty Name="portfolio" Relationship="idx_equityModel.PORTFOLIO_TRANSACTION_FK" FromRole="transaction" ToRole="portfolio" />
+          <NavigationProperty Name="stock" Relationship="idx_equityModel.STOCK_TRANSACTION_FK" FromRole="transaction" ToRole="stock" />
+          <Property Name="broker_id" Type="Int32" />
+          <NavigationProperty Name="broker" Relationship="idx_equityModel.BROKER_TRANSACTION_FK" FromRole="transaction" ToRole="broker" />
+        </EntityType>
+        <Association Name="PORTFOLIO_TRANSACTION_FK">
+          <End Type="idx_equityModel.portfolio" Role="portfolio" Multiplicity="0..1" />
+          <End Type="idx_equityModel.transaction" Role="transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portfolio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="portfolio_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STOCK_TRANSACTION_FK">
+          <End Type="idx_equityModel.stock" Role="stock" Multiplicity="0..1" />
+          <End Type="idx_equityModel.transaction" Role="transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="stock">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="stock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BROKER_TRANSACTION_FK">
+          <End Type="idx_equityModel.broker" Role="broker" Multiplicity="0..1" />
+          <End Type="idx_equityModel.transaction" Role="transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="broker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="broker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="idx_equityModelStoreContainer" CdmEntityContainer="idx_equityEntities">
+          <EntitySetMapping Name="equity_holding">
+            <EntityTypeMapping TypeName="idx_equityModel.equity_holding">
+              <MappingFragment StoreEntitySet="equity_holding">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="stock_id" ColumnName="stock_id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Domestic_Insurance" ColumnName="Domestic_Insurance" />
+                <ScalarProperty Name="Domestic_Company" ColumnName="Domestic_Company" />
+                <ScalarProperty Name="Domestic_Pension_Fund" ColumnName="Domestic_Pension_Fund" />
+                <ScalarProperty Name="Domestic_Bank" ColumnName="Domestic_Bank" />
+                <ScalarProperty Name="Domestic_Individual" ColumnName="Domestic_Individual" />
+                <ScalarProperty Name="Domestic_Mutual_Fund" ColumnName="Domestic_Mutual_Fund" />
+                <ScalarProperty Name="Domestic_Security" ColumnName="Domestic_Security" />
+                <ScalarProperty Name="Domestic_Foundation" ColumnName="Domestic_Foundation" />
+                <ScalarProperty Name="Domestic_Others" ColumnName="Domestic_Others" />
+                <ScalarProperty Name="Foreign_Insurance" ColumnName="Foreign_Insurance" />
+                <ScalarProperty Name="Foreign_Company" ColumnName="Foreign_Company" />
+                <ScalarProperty Name="Foreign_Pension_Fund" ColumnName="Foreign_Pension_Fund" />
+                <ScalarProperty Name="Foreign_Bank" ColumnName="Foreign_Bank" />
+                <ScalarProperty Name="Foreign_Individual" ColumnName="Foreign_Individual" />
+                <ScalarProperty Name="Foreign_Mutual_Fund" ColumnName="Foreign_Mutual_Fund" />
+                <ScalarProperty Name="Foreign_Security" ColumnName="Foreign_Security" />
+                <ScalarProperty Name="Foreign_Foundation" ColumnName="Foreign_Foundation" />
+                <ScalarProperty Name="Foreign_Others" ColumnName="Foreign_Others" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="financials">
+            <EntityTypeMapping TypeName="idx_equityModel.financial">
+              <MappingFragment StoreEntitySet="financial">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="stock_id" ColumnName="stock_id" />
+                <ScalarProperty Name="financial_date" ColumnName="financial_date" />
+                <ScalarProperty Name="asset" ColumnName="asset" />
+                <ScalarProperty Name="liabilities" ColumnName="liabilities" />
+                <ScalarProperty Name="sales" ColumnName="sales" />
+                <ScalarProperty Name="equity" ColumnName="equity" />
+                <ScalarProperty Name="gross_profit" ColumnName="gross_profit" />
+                <ScalarProperty Name="net_income" ColumnName="net_income" />
+                <ScalarProperty Name="cash_flow" ColumnName="cash_flow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fundamentals">
+            <EntityTypeMapping TypeName="idx_equityModel.fundamental">
+              <MappingFragment StoreEntitySet="fundamental">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="stock_id" ColumnName="stock_id" />
+                <ScalarProperty Name="return_on_equity" ColumnName="return_on_equity" />
+                <ScalarProperty Name="return_on_asset" ColumnName="return_on_asset" />
+                <ScalarProperty Name="gross_profit_margin" ColumnName="gross_profit_margin" />
+                <ScalarProperty Name="operating_profit_margin" ColumnName="operating_profit_margin" />
+                <ScalarProperty Name="net_profit_margin" ColumnName="net_profit_margin" />
+                <ScalarProperty Name="debt_equity_ratio" ColumnName="debt_equity_ratio" />
+                <ScalarProperty Name="earning_per_share" ColumnName="earning_per_share" />
+                <ScalarProperty Name="cash_flow_per_share" ColumnName="cash_flow_per_share" />
+                <ScalarProperty Name="book_value_per_share" ColumnName="book_value_per_share" />
+                <ScalarProperty Name="shares_amount_issued" ColumnName="shares_amount_issued" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sectors">
+            <EntityTypeMapping TypeName="idx_equityModel.sector">
+              <MappingFragment StoreEntitySet="sectors">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="subsector" ColumnName="subsector" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stock_quotes">
+            <EntityTypeMapping TypeName="idx_equityModel.stock_quotes">
+              <MappingFragment StoreEntitySet="stock_quotes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="stock_id" ColumnName="stock_id" />
+                <ScalarProperty Name="quote_date" ColumnName="quote_date" />
+                <ScalarProperty Name="open" ColumnName="open" />
+                <ScalarProperty Name="high" ColumnName="high" />
+                <ScalarProperty Name="low" ColumnName="low" />
+                <ScalarProperty Name="close" ColumnName="close" />
+                <ScalarProperty Name="volume" ColumnName="volume" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="foreign_buy" ColumnName="foreign_buy" />
+                <ScalarProperty Name="foreign_sell" ColumnName="foreign_sell" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stocks">
+            <EntityTypeMapping TypeName="idx_equityModel.stock">
+              <MappingFragment StoreEntitySet="stocks">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sector_id" ColumnName="sector_id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="total_composition">
+            <EntityTypeMapping TypeName="idx_equityModel.total_composition">
+              <MappingFragment StoreEntitySet="total_composition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Domestic_Total" ColumnName="Domestic_Total" />
+                <ScalarProperty Name="Foreign_Total" ColumnName="Foreign_Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="brokers">
+            <EntityTypeMapping TypeName="idx_equityModel.broker">
+              <MappingFragment StoreEntitySet="broker">
+                <ScalarProperty Name="sell_fee" ColumnName="sell_fee" />
+                <ScalarProperty Name="buy_fee" ColumnName="buy_fee" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="portfolios">
+            <EntityTypeMapping TypeName="idx_equityModel.portfolio">
+              <MappingFragment StoreEntitySet="portfolio">
+                <ScalarProperty Name="total_shares" ColumnName="total_shares" />
+                <ScalarProperty Name="last_price" ColumnName="last_price" />
+                <ScalarProperty Name="average_price" ColumnName="average_price" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="idx_equityModel.transaction">
+              <MappingFragment StoreEntitySet="transactions">
+                <ScalarProperty Name="broker_id" ColumnName="broker_id" />
+                <ScalarProperty Name="portfolio_id" ColumnName="portfolio_id" />
+                <ScalarProperty Name="transaction_fee" ColumnName="transaction_fee" />
+                <ScalarProperty Name="transaction_price" ColumnName="transaction_price" />
+                <ScalarProperty Name="transaction_type" ColumnName="transaction_type" />
+                <ScalarProperty Name="number_of_shares" ColumnName="number_of_shares" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="stock_id" ColumnName="stock_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
